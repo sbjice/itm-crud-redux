@@ -1,8 +1,8 @@
-import axios, { AxiosResponse } from 'axios';
-import { ProductData } from '../types/productData';
+import axios from 'axios';
 import { PRODUCTS_URL } from '../constants/api.constants';
-import { store } from '../store/store';
 import { setProductsAction } from '../store/product/product.slice';
+import { store } from '../store/store';
+import { ProductData } from '../types/productData';
 
 // export const fetchProductsApi = (): Promise<AxiosResponse<ProductData[]>> => {
 //   return axios<ProductData[]>({
