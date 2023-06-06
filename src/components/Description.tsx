@@ -9,14 +9,14 @@ interface DescriptionProps {
 
 export const Description = memo(({text, maxLength = DESCRIPTION_MAX_LENGTH}: DescriptionProps) => {
   const [showLong, setShowLong] = useState(false);
-  const needButton = text.length > 150;
+  const needButton = text.length > maxLength;
 
   const onClick = () => {
     setShowLong(!showLong);
   }
 
   const textShown = useMemo(() => {
-    if (text.length <= 150) return text;
+    if (text.length <= maxLength) return text;
     return showLong 
             ? text
             : text.substring(0, DESCRIPTION_MAX_LENGTH) + '...' ;
