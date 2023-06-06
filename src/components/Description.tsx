@@ -20,7 +20,7 @@ export const Description = memo(({text, maxLength = DESCRIPTION_MAX_LENGTH}: Des
     return showLong 
             ? text
             : text.substring(0, DESCRIPTION_MAX_LENGTH) + '...' ;
-  }, [showLong, text]);
+  }, [showLong, text, maxLength]);
 
   const buttonText = useMemo(() => {
     return showLong ? 'Hide Details' : 'Show Details';
