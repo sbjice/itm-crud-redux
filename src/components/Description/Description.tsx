@@ -1,6 +1,6 @@
 import { memo, useMemo, useState } from 'react';
 import styles from './Description.module.css';
-import { DESCRIPTION_MAX_LENGTH } from '../constants/constants';
+import { DESCRIPTION_MAX_LENGTH } from '../../constants/constants';
 
 interface DescriptionProps {
   text: string;
@@ -19,7 +19,7 @@ export const Description = memo(({text, maxLength = DESCRIPTION_MAX_LENGTH}: Des
     if (text.length <= maxLength) return text;
     return showLong 
             ? text
-            : text.substring(0, DESCRIPTION_MAX_LENGTH) + '...' ;
+            : text.substring(0, maxLength) + '...' ;
   }, [showLong, text, maxLength]);
 
   const buttonText = useMemo(() => {

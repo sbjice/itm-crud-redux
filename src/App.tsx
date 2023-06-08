@@ -1,16 +1,14 @@
 import './App.css';
-import { ProductList } from './entities/ProductList';
-import { store } from './store/store'
-import { Provider } from 'react-redux'
+import { Provider } from 'react-redux';
+import { store } from './store/store';
+import { ProductApp } from './entities/ProductApp';
 
 
 function App() {
   return (
     <Provider store={store}>
       <div className="App">
-        <div>
-          <ProductList />
-        </div>
+        <ProductApp/>
       </div>
     </Provider>
   );

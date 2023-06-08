@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { ProductData } from '../types/productData';
 import styles from './style.module.css';
-import { Description } from '../components/Description';
+import { Description } from '../components/Description/Description';
 
 interface ProductCardProps extends ProductData {};
 

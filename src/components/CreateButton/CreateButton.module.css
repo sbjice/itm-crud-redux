@@ -1,0 +1,22 @@
+.createButton {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: none;
+  background-color: #9AC5F4;
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.createButton svg {
+  rotate: 45deg;
+  pointer-events: none;
+}
+
+.createButton:active {
+  background-color: #C2DEDC;
+}
