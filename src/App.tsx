@@ -1,14 +1,14 @@
 import './App.css';
 import { Provider } from 'react-redux';
 import { store } from './store/store';
-import { ProductApp } from './entities/ProductApp';
+import { ProductListContainer } from './entities/ProductListContainer';
 
 
 function App() {
   return (
     <Provider store={store}>
       <div className="App">
-        <ProductApp/>
+        <ProductListContainer/>
       </div>
     </Provider>
   );
