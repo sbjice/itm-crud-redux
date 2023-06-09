@@ -5,7 +5,6 @@ import styles from './style.module.css';
 import { ProductData } from '../types/productData';
 
 interface ProductCreationFromProps {
-  // onSubmit: (product: Partial<ProductModel>) => void;
   onSubmit: (product: Partial<ProductData>) => void;
 }
 
@@ -18,7 +17,10 @@ export const ProductCreationFrom = memo(({onSubmit}: ProductCreationFromProps) =
     };
     const title = form.title.value;
     const description = form.description.value;
-    
+    if (title !== '') {
+      form.title.value = '';
+      form.description.value = '';
+    }
     onSubmit({title, description});
   }
 

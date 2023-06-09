@@ -14,10 +14,13 @@ export const productsSlice = createSlice({
     setProductsAction: (state, action: PayloadAction<Array<ProductData>>) => {
       state.products = action.payload;
     },
+    setProductAddAction: (state, action: PayloadAction<ProductData>) => {
+      state.products.unshift(action.payload);
+    },
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { setProductsAction } = productsSlice.actions;
+export const { setProductsAction, setProductAddAction } = productsSlice.actions;
 
 export default productsSlice.reducer;

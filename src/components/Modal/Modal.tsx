@@ -4,12 +4,12 @@ import styles from './Modal.module.css';
 
 interface ModalProps {
   title?: string;
-  children?: JSX.Element | Array<JSX.Element>;
+  children?: JSX.Element | Array<JSX.Element | null> ;
   shown?: boolean;
-  onCLose?: () => void;
+  onClose?: () => void;
 }
 
-export const Modal = ({ title = 'Popup', children, shown = true, onCLose }: ModalProps) => {
+export const Modal = ({ title = 'Popup', children, shown = true, onClose }: ModalProps) => {
 
   const onContainerClick = (e: React.MouseEvent<HTMLDivElement>) => {
     e.stopPropagation();
@@ -18,12 +18,12 @@ export const Modal = ({ title = 'Popup', children, shown = true, onCLose }: Moda
   return (
     <div
       className={`${styles.modal_overlay} ${shown ? '' : styles.hidden}`}
-      onClick={onCLose}>
+      onClick={onClose}>
       <div
         className={styles.modal_container}
         onClick={onContainerClick}
       >
-        <CloseIcon onClick={onCLose} />
+        <CloseIcon onClick={onClose} />
         <h2 className={styles.modal_header}>{title}</h2>
         <div>
           {children}
