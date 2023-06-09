@@ -4,14 +4,6 @@ import { setProductsAction, setProductAddAction } from '../store/product/product
 import { store } from '../store/store';
 import { ProductData } from '../types/productData';
 
-// export const fetchProductsApi = (): Promise<AxiosResponse<ProductData[]>> => {
-//   return axios<ProductData[]>({
-//     method: 'get',
-//     url: PRODUCTS_URL,
-//     responseType: 'json'
-//   })
-// }
-
 export const fetchProductsApi = async () => {
   await axios.get<ProductData[]>(PRODUCTS_URL)
     .then(res => {
@@ -28,10 +20,7 @@ export const createProductApi = async (product: Partial<ProductData>) => {
     })
     .then(res => {
       if(res.status === 200) {
-        console.log(res);
         store.dispatch(setProductAddAction(res.data));
       } else return;
-      // console.log(res);
-      // store.dispatch(setProductsAction(res.data));
     })
 }
