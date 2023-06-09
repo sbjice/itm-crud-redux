@@ -1,5 +1,5 @@
-import styles from './Modal.module.css';
 import { ReactComponent as CloseIcon } from '../../assets/icons/cross.svg';
+import styles from './Modal.module.css';
 
 
 interface ModalProps {
@@ -25,7 +25,9 @@ export const Modal = ({ title = 'Popup', children, shown = true, onCLose }: Moda
       >
         <CloseIcon onClick={onCLose} />
         <h2 className={styles.modal_header}>{title}</h2>
-        {children}
+        <div>
+          {children}
+        </div>
       </div>
 
     </div>
