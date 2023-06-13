@@ -8,7 +8,7 @@ import { ProductCreationFrom } from './ProductCreationForm';
 export const ProductCreationContainer = () => {
   
   const [showModal, setShowModal] = useState(false);
-  const [dataLoading, setDataLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
 
@@ -20,7 +20,7 @@ export const ProductCreationContainer = () => {
     setShowModal(false);
   }, []);
 
-  const handleSumbit = useCallback(async (product: Partial<ProductData>) => {
+  const onSubmit = useCallback(async (product: Partial<ProductData>) => {
     setError('');
     if (product.title === '') {
       setError('title must be filled');
@@ -28,12 +28,12 @@ export const ProductCreationContainer = () => {
     }
     closeModal();
     try {
-      setDataLoading(true);
+      setLoading(true);
       await createProductApi(product);
     } catch (e) {
       setError(`Something went wrong! Error: ${e}`);
     } finally {
-      setDataLoading(false);
+      setLoading(false);
     }
 
   }, [closeModal]);
@@ -42,9 +42,9 @@ export const ProductCreationContainer = () => {
     <div>
       <CreateButton onClick={openModal} />
       <Modal title="Create Product" shown={showModal} onClose={closeModal}>
-        <ProductCreationFrom onSubmit={handleSumbit} />
+        <ProductCreationFrom onSubmit={onSubmit} />
         {error !== '' ? <div>{error}</div> : null}
-        {dataLoading ? <div>loading</div> : null}
+        {loading ? <div>loading</div> : null}
       </Modal>
     </div>
   )

@@ -3,7 +3,7 @@ import { ProductData } from '../types/productData';
 import styles from './style.module.css';
 import { Description } from '../components/Description/Description';
 
-interface ProductCardProps extends ProductData {};
+type ProductCardProps = Pick<ProductData, 'title' | 'image' | 'price' | 'description'> ;
 
 export const ProductCard = memo(({title, image, price, description}: ProductCardProps) => {
   return (

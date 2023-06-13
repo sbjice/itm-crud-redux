@@ -5,9 +5,9 @@ import { store } from '../store/store';
 import { ProductData } from '../types/productData';
 
 export const fetchProductsApi = async () => {
-  await axios.get<ProductData[]>(PRODUCTS_URL)
-    .then(res => {
-      store.dispatch(setProductsAction(res.data))
+  await axios.get<Array<ProductData>>(PRODUCTS_URL)
+    .then(({data}) => {
+      store.dispatch(setProductsAction(data));
     })
 }
 
@@ -16,11 +16,9 @@ export const createProductApi = async (product: Partial<ProductData>) => {
       ...product,
       price: 13.5,
       image: 'https://i.pravatar.cc',
-      category: 'electronic'
+      category: 'electronic',
     })
-    .then(res => {
-      if(res.status === 200) {
-        store.dispatch(setProductAddAction(res.data));
-      } else return;
+    .then(({data}) => {
+      store.dispatch(setProductAddAction(data));
     })
 }

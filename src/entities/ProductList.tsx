@@ -15,12 +15,9 @@ export const ProductList = memo(() => {
       {loading 
         ? 'Data loading'
         : (error === '' 
-          ? products.map(product => {
+          ? products.map((product) => {
             return <ProductCard
-              title={product.title}
-              image={product.image}
-              price={product.price}
-              description={product.description}
+              {...product}
               key={product.id}
             ></ProductCard>
           })
